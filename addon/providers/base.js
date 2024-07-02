@@ -2,7 +2,6 @@ import { reject, resolve } from 'rsvp';
 
 import EmberObject from '@ember/object';
 import { assert } from '@ember/debug';
-import { assign } from '@ember/polyfills';
 import { cached } from '@glimmer/tracking';
 import { getOwner } from '@ember/application';
 import { isPresent } from '@ember/utils';
@@ -116,7 +115,7 @@ export default class BaseProvider extends EmberObject {
     const width = options.width || 640;
     const height = options.height || 480;
 
-    return assign(
+    return Object.assign(
       {
         left: screen.width / 2 - width / 2,
         top: screen.height / 2 - height / 2,
